@@ -50,7 +50,7 @@ post '/subscribers' do
   url = data['url'] || nil
   if rec = DB[:channels].filter(:name => channel_name).first
     if url and rec[:id]
-      unless DB[:subscribers].filter(:channel_id => rec[:id], :url => url)
+      unless DB[:subscribers].filter(:channel_id => rec[:id], :url => url).first
         res = DB[:subscribers] << { :channel_id => rec[:id], :url => url }
       end
     end

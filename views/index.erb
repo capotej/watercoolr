@@ -5,26 +5,50 @@
 <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
 </head>
 <body>
-<h1>Watercoolr</h1>
-<strong>pubsub via webhooks, or "twitter" for your applications</strong>
-
-<h3>Example:</h3>
-<pre><strong>Create a channel:</strong>
+<div id="wrapper">
+<div class="generic twoforty">
+<img src="/images/cooler.jpg"/>
+</div>
+<div class="generic seventsixty">
+   <h1>Watercoolr</h1>
+  <strong class="tagline">pubsub via webhooks, or "twitter" for your applications</strong>
+<br/>
+<br/>
+<div class="example">
+<h4>Example:</h4>
+<strong>Create a channel:</strong>
+<pre>
 &rarr; POST /channels
 &larr; { 'id':'2d0128d' }
-
+</pre>
+<br/>
 <strong>Add subscribers:</strong>
+<pre>
 &rarr; POST /subscribers data={ 'channel':'2d0128d', 'url':'http://api.otherservice.com/your-message-handler' }
 &larr; { 'status': 'OK' }
-
+</pre>
+<br/>
 <strong>Post messages:</strong>
+<pre>
 you &rarr; POST /messages data={ 'channel':'2d0128d', 'message':'hey guys!' }
    us &rarr; POST http://api.otherservice.com/your-message-handler data='hey guys!'
    ...for every subscriber...
 &larr; { 'status': 'OK' }
-
 </pre>
+<br/>
 
 <a href="http://www.github.com/jcapote/watercoolr">Watercoolr source</a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-297284-19");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>
