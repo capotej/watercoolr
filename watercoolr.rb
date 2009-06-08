@@ -10,15 +10,15 @@ configure do
   unless DB.table_exists? "channels"
     DB.create_table :channels do
       primary_key :id
-      varchar :name, :size => 256
+      varchar :name, :size => 32
     end
   end
 
   unless DB.table_exists? "subscribers"
     DB.create_table :subscribers do
       primary_key :id
-      integer :channel_id, :size => 11
-      varchar :url, :size => 256
+      foreign_key :channel_id
+      varchar :url, :size => 128
     end
   end
 end
