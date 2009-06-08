@@ -1,0 +1,23 @@
+<h1>Watercoolr</h1>
+<strong>pubsub via webhooks, or "twitter" for your applications</strong>
+
+<h3>Example:</h3>
+<pre><strong>Create a channel:</strong>
+&rarr; POST /channels
+&larr; { 'id':'2d0128d' }
+
+<strong>Add subscribers:</strong>
+&rarr; POST /subscribers data={ 'channel':'2d0128d', 'url':'http://api.otherservice.com/your-message-handler' }
+&larr; { 'status': 'OK' }
+
+<strong>Post messages:</strong>
+you &rarr; POST /messages data={ 'channel':'2d0128d', 'message':'hey guys!' }
+   us &rarr; POST http://api.otherservice.com/your-message-handler data='hey guys!'
+   ...for every subscriber...
+&larr; { 'status': 'OK' }
+
+
+
+
+
+</pre>
