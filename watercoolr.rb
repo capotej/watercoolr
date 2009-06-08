@@ -72,7 +72,6 @@ post '/messages' do
         subs.each do |sub|
           begin
             RestClient.post sub[:url], :data => message 
-            puts url
           rescue
           end
           res = true
