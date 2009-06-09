@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sequel'
-require 'rest_client'
+require 'httpclient'
 require 'zlib'
 require 'json'
 
@@ -73,7 +73,7 @@ post '/messages' do
       if subs
         subs.each do |sub|
           begin
-            RestClient.post sub[:url], :data => message 
+            HTTPClient.post(sub[:url], :data => message)
           rescue
           end
           res = true
@@ -87,4 +87,3 @@ post '/messages' do
     { :status => 'FAIL' }.to_json
   end
 end
-
